@@ -1,14 +1,46 @@
 import os
+import json
 import requests  # noqa We are just importing this to prove the dependency installed correctly
 
 
 def main():
-    my_input = os.environ["INPUT_MYINPUT"]
+    url = "https://leetcode.com/graphql"
+    body = """
+      query questionOfToday {
+        activeDailyCodingChallengeQuestion {
+          date
+          userStatus
+          link
+          question {
+            acRate
+            difficulty
+            freqBar
+            frontendQuestionId: questionFrontendId
+            isFavor
+            paidOnly: isPaidOnly
+            status
+            title
+            titleSlug
+            hasVideoSolution
+            hasSolution
+            topicTags {
+              name
+              id
+              slug
+            }
+          }
+        }
+      }
+    """
 
-    my_output = f"Hello {my_input}"
+    payload = {
+      "query": body,
+      "operationName":"questionOfToday" }
 
-    print(f"::set-output name=myOutput::{my_output}")
-
+    response = requests.post(url=url, json=payload)
+    print("response status code: ", response.status_code)
+    if response.status_code == 200:
+        print("response: ", json.dumps(response.json(), indent=3))
 
 if __name__ == "__main__":
     main()
