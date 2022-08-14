@@ -1,13 +1,11 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Jacob Tomlinson"
+name: "Create GitHub Issue for Leetcode Daily"
+description: "Lookup today's Leetcode daily problem and create a GitHub issue for it"
+author: "Jeremy Pruitt"
 inputs:
-  myInput:
-    description: "Input to use"
-    default: "world"
-outputs:
-  myOutput:
-    description: "Output from the action"
+  GITHUB_REPO_NAME:
+    description: "The name of the GitHub repository"
+  GITHUB_REPO_OWNER:
+    description: "The name of the owner of the github repository"
 runs:
   using: "docker"
   image: "Dockerfile"
