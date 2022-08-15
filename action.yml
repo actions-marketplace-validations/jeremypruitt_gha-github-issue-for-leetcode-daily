@@ -1,11 +1,6 @@
 name: "Create GitHub Issue for Leetcode Daily"
 description: "Lookup today's Leetcode daily problem and create a GitHub issue for it"
 author: "Jeremy Pruitt"
-inputs:
-  GITHUB_REPO_NAME:
-    description: "The name of the GitHub repository"
-  GITHUB_REPO_OWNER:
-    description: "The name of the owner of the github repository"
 runs:
   using: "docker"
   image: "Dockerfile"
