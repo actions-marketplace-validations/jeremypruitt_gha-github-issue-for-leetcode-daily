@@ -13,6 +13,7 @@ EMOJI = { "easy": "🟢", "medium": "🟡", "hard": "🔴" }
 # ---------------------------------------------------------------------
 def create_github_issue(title,body):
     repo_name  = os.environ.get('GITHUB_REPOSITORY')
+    if DEBUG: print(f'repo_name: {repo_name}')
 
     repos_url  = f'{GITHUB_BASE_URL}/repos'
     repo_url   = f'{repos_url}/{repo_name}'
