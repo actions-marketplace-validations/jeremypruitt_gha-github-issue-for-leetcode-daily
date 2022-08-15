@@ -1,6 +1,6 @@
 import os
 import json
-import requests  # noqa We are just importing this to prove the dependency installed correctly
+import requests
 
 AUTH_TOKEN = os.environ.get('GITHUB_TOKEN')
 DEBUG = os.environ.get('DEBUG')
@@ -12,11 +12,10 @@ EMOJI = { "easy": "🟢", "medium": "🟡", "hard": "🔴" }
 # Create Github Issue
 # ---------------------------------------------------------------------
 def create_github_issue(title,body):
-    repo_owner = os.environ.get('GITHUB_REPO_OWNER')
-    repo_name  = os.environ.get('GITHUB_REPO_NAME')
+    repo_name  = os.environ.get('GITHUB_REPOSITORY')
 
     repos_url  = f'{GITHUB_BASE_URL}/repos'
-    repo_url   = f'{repos_url}/{repo_owner}/{repo_name}'
+    repo_url   = f'{repos_url}/{repo_name}'
     issues_url = f'{repo_url}/issues'
 
     session = requests.Session()
