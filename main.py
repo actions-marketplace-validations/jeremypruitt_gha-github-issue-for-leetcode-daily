@@ -12,6 +12,7 @@ if DEBUG:
 GITHUB_BASE_URL = 'https://api.github.com'
 LEETCODE_BASE_URL = "https://www.leetcode.com"
 EMOJI = { "easy": "🟢", "medium": "🟡", "hard": "🔴" }
+GITHUB_TOKEN = os.environ.get("INPUT_GITHUB_TOKEN")
 
 # ---------------------------------------------------------------------
 # Create Github Issue
