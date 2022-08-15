@@ -12,17 +12,17 @@ if DEBUG:
 GITHUB_BASE_URL = 'https://api.github.com'
 LEETCODE_BASE_URL = "https://www.leetcode.com"
 EMOJI = { "easy": "🟢", "medium": "🟡", "hard": "🔴" }
+GITHUB_REPOSITORY = os.environ.get('INPUT_GITHUB_REPOSITORY')
 GITHUB_TOKEN = os.environ.get("INPUT_GITHUB_TOKEN")
 
 # ---------------------------------------------------------------------
 # Create Github Issue
 # ---------------------------------------------------------------------
 def create_github_issue(title,body):
-    repo_name  = os.environ.get('GITHUB_REPOSITORY')
-    if DEBUG: print(f'repo_name: {repo_name}')
+    if DEBUG: print(f'GITHUB_REPOSITORY: {GITHUB_REPOSITORY}')
 
     repos_url  = f'{GITHUB_BASE_URL}/repos'
-    repo_url   = f'{repos_url}/{repo_name}'
+    repo_url   = f'{repos_url}/{GITHUB_REPOSITORY}'
     issues_url = f'{repo_url}/issues'
 
     session = requests.Session()

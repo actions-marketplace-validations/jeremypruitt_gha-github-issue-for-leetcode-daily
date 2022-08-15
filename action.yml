@@ -1,6 +1,9 @@
-name: "Create GitHub Issue for Leetcode Daily"
+name: "Create GitHub issue for Leetcode daily problem"
 description: "Lookup today's Leetcode daily problem and create a GitHub issue for it"
 author: "Jeremy Pruitt"
+branding:
+  icon: inbox
+  color: gray-dark
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -11,3 +14,9 @@ inputs:
       When `repository` is modified, set to a personal access token with access to `repository`.
     required: true
     default: ${{ github.token }}
+  github_repository:
+    description: >
+      The commit's repository name with owner.
+      For example, `jeremypruitt/example-repo`.
+    required: true
+    default: ${{ github.repository }}
