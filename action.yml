@@ -4,3 +4,10 @@ author: "Jeremy Pruitt"
 runs:
   using: "docker"
   image: "Dockerfile"
+inputs:
+  github_token:
+    description: >
+      GitHub token for GitHub API requests.
+      When `repository` is modified, set to a personal access token with access to `repository`.
+    required: true
+    default: ${{ github.token }}
