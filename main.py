@@ -2,8 +2,13 @@ import os
 import json
 import requests
 
-AUTH_TOKEN = os.environ.get('GITHUB_TOKEN')
 DEBUG = os.environ.get('DEBUG')
+if DEBUG:
+    print("\n\n# ---------------------------------------------------------------\n")
+    print("# All Env Vars\n")
+    print("# ---------------------------------------------------------------\n")
+    print(f"{os.environ}\n")
+    print("# ---------------------------------------------------------------\n\n")
 GITHUB_BASE_URL = 'https://api.github.com'
 LEETCODE_BASE_URL = "https://www.leetcode.com"
 EMOJI = { "easy": "🟢", "medium": "🟡", "hard": "🔴" }
@@ -20,7 +25,7 @@ def create_github_issue(title,body):
     issues_url = f'{repo_url}/issues'
 
     session = requests.Session()
-    headers = {'Authorization': f'token {AUTH_TOKEN}',
+    headers = {'Authorization': f'token {GITHUB_TOKEN}',
                'Accept': 'application/vnd.github.v3+json'}
 
     payload = json.dumps({'title': title, 'body': body})
