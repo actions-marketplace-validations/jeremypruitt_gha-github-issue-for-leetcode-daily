@@ -28,7 +28,6 @@ def get_leetcode_daily_problem():
             frontendQuestionId: questionFrontendId
             likes
             metaData
-            questionId
             sampleTestCase
             similarQuestions
             status
@@ -63,7 +62,7 @@ def generate_github_issue_body(question) -> str:
     problem_url = f"{LEETCODE_BASE_URL}{question['link']}"
     qq = question['question']
 
-    body = f"# {qq['questionId']}. {qq['title']}\n"
+    body = f"# {qq['frontendQuestionId']}. {qq['title']}\n"
 
     body += "\n"
     body += f"[🔗 Problem]({problem_url})"
@@ -129,7 +128,7 @@ def main():
     qq = question['question']
 
     github_issue_body = generate_github_issue_body(question)
-    github_issue_title = f"LC Daily: {qq['questionId']}. {qq['title']}"
+    github_issue_title = f"LC Daily: {qq['frontendQuestionId']}. {qq['title']}"
 
     print(f"ℹ️   github_issue_title: {github_issue_title}")
     if DEBUG:
